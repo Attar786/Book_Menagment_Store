@@ -55,20 +55,22 @@ app.put('/books/:id', async (req, res) => {
                 message: "Please provide all the required fields"
             });
         }
+        
 
-        const { id } = req.params;
-        const result = await Book.findByIdAndUpdate(id, req.body);
-        if (!result) {
-            return res.status(404).send({ message: "Book not found" });
-        }
-        return res.status(200).send({ message: "Book updated successfully" });
+const {id} = req.params;
+const result = await Book.findByIdAndUpdate(id, req.body);
+if(!result){
+    return res.status(404).send({ message: "Book not found" });
+}
+return res.status(200).send({ message: "Book updated successfully"})
 
-    } catch (error) {
+
+
+    } catch (error.message) {
         res.status(500).send({ message: error.message });
+        
     }
-});
-
-
+})
 mongoose.connect(mongoDBURL)
     .then(() => {
         console.log("Connected to MongoDB");
