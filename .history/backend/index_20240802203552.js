@@ -67,7 +67,7 @@ app.put('/books/:id', async (req, res) => {
         res.status(500).send({ message: error.message });
     }
 });
-app.delete('/books/:id', async (req,res)=>
+app.delate('/books/:id', async (req,res)=>
 {
     try {
         const {id} = req.params;
