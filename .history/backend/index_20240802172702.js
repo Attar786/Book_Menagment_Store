@@ -35,19 +35,19 @@ app.post('/books', async (req, res) => {
 });
 
 
-app.get('/books/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const book = await Book.findById(id); // Pass the ID directly to findById
-        if (!book) {
-            return res.status(404).send({ message: "Book not found" });
-        }
-        return res.status(200).json(book);
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).send({ message: error.message });
-    }
-});
+
+app.get('/books', async (req, res) => {
+try {
+    const books = await Book.find({});
+    return res.status(200).send.json(books);
+} catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+    
+}    
+
+
+})
 
 mongoose.connect(mongoDBURL)
     .then(() => {
