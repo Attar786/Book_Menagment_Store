@@ -28,10 +28,10 @@ const ShowBooks = () => {
 
   return (
     <div className="p-4">
-      {/* <span className="bg-sky-900 rounded-lg"> */}
+      <span className="bg-sky-500 rounded">
       <BackButton />
 
-      {/* </span> */}
+      </span>
     
       <h1 className="text-3xl my-4">Show Book</h1>
       {
